@@ -19,6 +19,7 @@ package com.neves6.piazzapanic.tests;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import org.junit.runner.notification.RunNotifier;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.FrameworkMethod;
@@ -33,19 +34,21 @@ import com.badlogic.gdx.backends.headless.HeadlessApplication;
 import com.badlogic.gdx.backends.headless.HeadlessApplicationConfiguration;
 
 public class GdxTestRunner extends BlockJUnit4ClassRunner implements ApplicationListener {
+	SpriteBatch batch;
 
 	private Map<FrameworkMethod, RunNotifier> invokeInRender = new HashMap<FrameworkMethod, RunNotifier>();
 
 	public GdxTestRunner(Class<?> klass) throws InitializationError {
 		super(klass);
 		HeadlessApplicationConfiguration conf = new HeadlessApplicationConfiguration();
+		Gdx.gl = mock(GL20.class);
 
 		new HeadlessApplication(this, conf);
-		Gdx.gl = mock(GL20.class);
 	}
 
 	@Override
 	public void create() {
+		Gdx.gl = mock(GL20.class);
 	}
 
 	@Override

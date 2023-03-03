@@ -8,7 +8,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import java.util.ArrayList;
 import java.util.Stack;
 
-class ScenarioGameMaster extends GameMaster {
+public class ScenarioGameMaster extends GameMaster {
     PiazzaPanicGame game;
     TiledMap map;
     TiledMapTileLayer collisionLayer;
