@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.neves6.piazzapanic.tests.TestDoubleSpeed" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-03-06T12:58:08" hostname="HP-PAV14" time="0.351">
+  <properties/>
+  <testcase name="testApplyPowerUpEmpty" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.03"/>
+  <testcase name="testEndPowerUpUnattained" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.032"/>
+  <testcase name="testEndPowerUpEmpty" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.04"/>
+  <testcase name="testApplyPowerUpUnattained" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.029"/>
+  <testcase name="testEndPowerUpNormal" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.033"/>
+  <testcase name="testApplyPowerUpNormal" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.034"/>
+  <testcase name="testConstructor" classname="com.neves6.piazzapanic.tests.TestDoubleSpeed" time="0.041"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
