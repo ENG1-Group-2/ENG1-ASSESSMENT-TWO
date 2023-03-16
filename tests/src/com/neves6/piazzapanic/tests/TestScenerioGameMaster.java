@@ -6,15 +6,20 @@ import com.neves6.piazzapanic.PiazzaPanicGame;
 import com.neves6.piazzapanic.ScenarioGameMaster;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 
+import com.neves6.piazzapanic.staff.DeliveryStaff;
+import com.neves6.piazzapanic.staff.IngredientsStaff;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+
+import java.util.ArrayList;
 
 import static org.junit.Assert.assertTrue;
 
 @RunWith(GdxTestRunner.class)
 public class TestScenerioGameMaster {
     TiledMap map = new TmxMapLoader().load("tilemaps/level1.tmx");
-    ScenarioGameMaster testMaster = new ScenarioGameMaster(new PiazzaPanicGame(), map, 1, 1, new Money());
+    ScenarioGameMaster testMaster = new ScenarioGameMaster(new PiazzaPanicGame(), map, 1, 1, new Money(),
+            new IngredientsStaff(new ArrayList<>(), new ArrayList<>()), new DeliveryStaff(new ArrayList<>(), new ArrayList<>()));
     @Test
     public void tryMoveValidUp(){
         testMaster.tryMove("up");
@@ -86,7 +91,8 @@ public class TestScenerioGameMaster {
         assertTrue(testMaster.generateHoldingsText().equals("Chef 1 is holding:\n[]\n"));
     }
 
-    ScenarioGameMaster testMasterII = new ScenarioGameMaster(new PiazzaPanicGame(), map, 2, 1, new Money());
+    ScenarioGameMaster testMasterII = new ScenarioGameMaster(new PiazzaPanicGame(), map, 2, 1, new Money(),
+            new IngredientsStaff(new ArrayList<>(), new ArrayList<>()), new DeliveryStaff(new ArrayList<>(), new ArrayList<>()));
 
     @Test
     public void testDisplayTextFull(){
@@ -97,5 +103,6 @@ public class TestScenerioGameMaster {
         assertTrue(testMasterII.generateHoldingsText().equals("Chef 1 is holding:\n[t, e]\nChef 2 is holding:\n[s, t]\n"));
     }
 
-    ScenarioGameMaster testMasterIII = new ScenarioGameMaster(new PiazzaPanicGame(), map, 2, 0, new Money());
+    ScenarioGameMaster testMasterIII = new ScenarioGameMaster(new PiazzaPanicGame(), map, 2, 0, new Money(),
+            new IngredientsStaff(new ArrayList<>(), new ArrayList<>()), new DeliveryStaff(new ArrayList<>(), new ArrayList<>()));
 }
