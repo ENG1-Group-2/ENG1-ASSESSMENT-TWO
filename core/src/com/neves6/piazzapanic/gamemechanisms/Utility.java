@@ -91,7 +91,7 @@ public final class Utility {
   int points;
 
   public static ArrayList<Integer> getHighScore(
-      boolean isEndless, boolean isPowerUp, int difficulty) {
+    boolean isEndless, boolean isPowerUp, int difficulty) {
     ArrayList<String> settingsDotTeeExTee = new ArrayList<String>(getSettings());
     if (isEndless) {
       if (isPowerUp) {
@@ -205,7 +205,7 @@ public final class Utility {
   }
 
   public static void setHighScore(
-      boolean isEndless, boolean isPowerUp, int difficulty, int place, int iscore) {
+    boolean isEndless, boolean isPowerUp, int difficulty, int place, int iscore) {
     ArrayList<String> settingsDotTeeExTee = new ArrayList<String>(getSettings());
     String score = Integer.toString(iscore);
     if (isEndless) {
@@ -392,45 +392,98 @@ public final class Utility {
     return;
   }
 
-  public static double calculateScore(int points, int totalTimer, boolean isEndless) {
-    double score;
-    if (isEndless) {
-      score = points;
-    } else {
-      score = Math.pow((double) totalTimer, (double) -1);
+  public static boolean isHighScore(boolean isEndless, boolean isPowerUp, int difficulty, int points, int totalTimer) {
+    ArrayList<Integer> prevScores = getHighScore(isEndless, isPowerUp, difficulty);
+    if (isEndless){
+      if (points>prevScores.get(0)){
+        if (points>prevScores.get(1)){
+          if (points>prevScores.get(2)){
+            //high score top. replace top score. replace middle score with previous top score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, prevScores.get(2));
+            setHighScore(isEndless, isPowerUp, difficulty, 2, points);
+            return true;
+          }else if (points==prevScores.get(2)){
+            //high score middle. replace middle score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, points);
+            return true;
+          }else{
+            //high score middle. replace middle score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, points);
+            return true;
+          }
+        }else{
+          //high score bottom. replace bottom score.
+          setHighScore(isEndless, isPowerUp, difficulty, 0, points);
+          return true;
+        }
+      }else{
+        //no high score.
+        return false;
+      }
+    }else{
+      if (totalTimer<prevScores.get(0)){
+        if (totalTimer<prevScores.get(1)){
+          if (totalTimer<prevScores.get(2)){
+            //high score top. replace middle score with previos top score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, prevScores.get(2));
+            setHighScore(isEndless, isPowerUp, difficulty, 2, totalTimer);
+            return true;
+          }else if(totalTimer==prevScores.get(2)){
+            //high score middle. replace middle score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, totalTimer);
+            return true;
+          }else{
+            //high score middle. replace middle score. replace bottom score with previous middle score.
+            setHighScore(isEndless, isPowerUp, difficulty, 0, prevScores.get(1));
+            setHighScore(isEndless, isPowerUp, difficulty, 1, totalTimer);
+            return true;
+          }
+        }else{
+          //high score bottom. replace bottom score.
+          setHighScore(isEndless, isPowerUp, difficulty, 0, totalTimer);
+          return true;
+        }
+      }else{
+        //no high score.
+        return false;
+      }
     }
-    return score;
   }
 
-  public static boolean isHighScore(
-      boolean isEndless, boolean isPowerUp, int difficulty, int points, int totalTimer) {
-    ArrayList<Integer> prevScores = getHighScore(isEndless, isPowerUp, difficulty);
-    // double score=calculateScore(points, totalTimer, isEndless);
+}
+
+
+/**
     if (isEndless) {
       int score = points;
-      if (score > prevScores.get(0)) {
-        if (score > prevScores.get(1)) {
-          if (score > prevScores.get(2)) {
+      if (points > prevScores.get(0)) {
+        if (points > prevScores.get(1)) {
+          if (points > prevScores.get(2)) {
             // high score 2. replace highest score.
-            setHighScore(isEndless, isPowerUp, difficulty, 2, score);
+            setHighScore(isEndless, isPowerUp, difficulty, 2, points);
             return true;
           } else if (score == prevScores.get(2)) {
             // high score 1. replace middle score.
 
-            setHighScore(isEndless, isPowerUp, difficulty, 1, score);
+            setHighScore(isEndless, isPowerUp, difficulty, 1, points);
             return true;
           } else {
             // high score 1. replace middle score.
-            setHighScore(isEndless, isPowerUp, difficulty, 1, score);
+            setHighScore(isEndless, isPowerUp, difficulty, 1, points);
             return true;
           }
         } else if (score == prevScores.get(1)) {
           // high score 0. replace lowest score.
-          setHighScore(isEndless, isPowerUp, difficulty, 0, score);
+          setHighScore(isEndless, isPowerUp, difficulty, 0, points);
           return true;
         } else {
           // high score 0. replace lowest score.
-          setHighScore(isEndless, isPowerUp, difficulty, 0, score);
+          setHighScore(isEndless, isPowerUp, difficulty, 0, points);
           return true;
         }
       } else {
@@ -438,18 +491,9 @@ public final class Utility {
         return false;
       }
     } else {
-      double score = Math.pow(totalTimer, -1);
-      ArrayList<Double> prevScoresD = new ArrayList<Double>();
-      for (int i = 0; i < 3; i++) {
-        if (Double.valueOf(prevScores.get(i)) == 0) {
-          prevScoresD.add(0.0);
-        } else {
-          prevScoresD.add((Math.pow(Double.valueOf(prevScores.get(i)), -1)));
-        }
-      }
-      if (score > prevScoresD.get(0)) {
-        if (score > prevScoresD.get(1)) {
-          if (score > prevScoresD.get(2)) {
+      if (totalTimer < prevScores.get(0)) {
+        if (totalTimer < prevScores.get(1)) {
+          if (totalTimer < prevScores.get(2)) {
             // high score 2. replace highest score.
             score = Math.pow(score, -1);
             int iscore = (int) score;
