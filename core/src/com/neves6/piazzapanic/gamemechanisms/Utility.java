@@ -10,8 +10,7 @@ public final class Utility {
   public static String settingsFilepath = "./settings.txt";
 
   /** Utility constructor. SHOULD NOT BE INITIALIZED! */
-  public Utility() {
-  }
+  public Utility() {}
 
   /**
    * Retrieves settings from file.
