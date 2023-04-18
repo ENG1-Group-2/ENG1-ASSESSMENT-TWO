@@ -2,11 +2,7 @@ package com.neves6.piazzapanic.gamemechanisms;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
 
 /** Helper/convenience class. Currently only handles retrieving and saving settings. */
 public final class Utility {
