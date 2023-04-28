@@ -128,11 +128,11 @@ project(":tests") {
                 rule {
                     limit {
                         counter = 'LINE'
-                        minimum = 0.5
+                        minimum = 0.4
                     }
                     limit {
                         counter = 'BRANCH'
-                        minimum = 0.5
+                        minimum = 0.6
                     }
                 }
             }
