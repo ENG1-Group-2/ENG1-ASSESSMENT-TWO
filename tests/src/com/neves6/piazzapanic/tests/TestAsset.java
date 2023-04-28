@@ -8,7 +8,6 @@ import org.junit.runner.RunWith;
 
 @RunWith(GdxTestRunner.class)
 public class TestAsset {
-
   @Test
   public void testControlAssetExists() {
     assertTrue(
@@ -31,20 +30,6 @@ public class TestAsset {
   }
 
   @Test
-  public void testsoundsgrillExists() {
-    assertTrue(
-        "'sounds/grill.mp3' must exist for the game to compile",
-        Gdx.files.internal("sounds/grill.mp3").exists());
-  }
-
-  @Test
-  public void testsoundschoppingExists() {
-    assertTrue(
-        "'sounds/chopping.mp3' must exist for the game to compile",
-        Gdx.files.internal("sounds/chopping.mp3").exists());
-  }
-
-  @Test
   public void testsoundsservingExists() {
     assertTrue(
         "'sounds/serving.mp3' must exist for the game to compile",
@@ -56,13 +41,6 @@ public class TestAsset {
     assertTrue(
         "'sounds/fridge.mp3' must exist for the game to compile",
         Gdx.files.internal("sounds/fridge.mp3").exists());
-  }
-
-  @Test
-  public void testsoundsformingExists() {
-    assertTrue(
-        "'sounds/forming.mp3' must exist for the game to compile",
-        Gdx.files.internal("sounds/forming.mp3").exists());
   }
 
   @Test
@@ -140,5 +118,46 @@ public class TestAsset {
     assertTrue(
         "'tutorial.png' must exist for the game to compile",
         Gdx.files.internal("tutorial.png").exists());
+  }
+
+  @Test
+  public void testsoundschargingmachineExists() {
+    assertTrue("'sounds/charging-machine-90403.mp3' must exist for the game to compile", Gdx.files
+            .internal("sounds/charging-machine-90403.mp3").exists());
+  }
+  @Test
+  public void testrightscenariosliderpngExists() {
+    assertTrue("'right-scenario-slider.png' must exist for the game to compile", Gdx.files
+            .internal("right-scenario-slider.png").exists());
+  }
+
+  @Test
+  public void testleftpowerupsliderpngExists() {
+    assertTrue("'left-powerup-slider.png' must exist for the game to compile", Gdx.files
+            .internal("left-powerup-slider.png").exists());
+  }
+
+  @Test
+  public void testrightpowerupsliderpngExists() {
+    assertTrue("'right-powerup-slider.png' must exist for the game to compile", Gdx.files
+            .internal("right-powerup-slider.png").exists());
+  }
+
+  @Test
+  public void testbuttonsknobExists() {
+    assertTrue("'buttons/knob.png' must exist for the game to compile", Gdx.files
+            .internal("buttons/knob.png").exists());
+  }
+
+  @Test
+  public void testbuttonssliderExists() {
+    assertTrue("'buttons/slider.png' must exist for the game to compile", Gdx.files
+            .internal("buttons/slider.png").exists());
+  }
+
+  @Test
+  public void testtutorialmappngExists() {
+    assertTrue("'tutorialmap.png' must exist for the game to compile", Gdx.files
+            .internal("tutorialmap.png").exists());
   }
 }
