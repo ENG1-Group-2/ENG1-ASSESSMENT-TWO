@@ -1,4 +1,4 @@
-package com.neves6.piazzapanic.tests;
+package com.neves6.piazzapanic.tests.gamemechanisms;
 
 import static org.junit.Assert.assertTrue;
 
@@ -8,6 +8,8 @@ import com.neves6.piazzapanic.people.Chef;
 import com.neves6.piazzapanic.people.Customer;
 import com.neves6.piazzapanic.staff.DeliveryStaff;
 import java.util.*;
+
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

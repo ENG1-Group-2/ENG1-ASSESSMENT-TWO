@@ -1,8 +1,10 @@
-package com.neves6.piazzapanic.tests;
+package com.neves6.piazzapanic.tests.gamemechanisms;
 
 import com.neves6.piazzapanic.gamemechanisms.Utility;
 import java.io.File;
 import java.util.ArrayList;
+
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

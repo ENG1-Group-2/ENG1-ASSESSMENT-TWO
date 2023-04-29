@@ -1,8 +1,9 @@
-package com.neves6.piazzapanic.tests;
+package com.neves6.piazzapanic.tests.gamemechanisms;
 
 import static org.junit.Assert.*;
 
 import com.neves6.piazzapanic.gamemechanisms.Money;
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

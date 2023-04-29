@@ -1,10 +1,11 @@
-package com.neves6.piazzapanic.tests;
+package peopletests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.neves6.piazzapanic.people.Customer;
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

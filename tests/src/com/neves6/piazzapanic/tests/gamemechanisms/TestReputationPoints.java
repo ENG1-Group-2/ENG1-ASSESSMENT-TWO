@@ -1,8 +1,9 @@
-package com.neves6.piazzapanic.tests;
+package com.neves6.piazzapanic.tests.gamemechanisms;
 
 import static org.junit.Assert.assertTrue;
 
 import com.neves6.piazzapanic.gamemechanisms.ReputationPoints;
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 

@@ -1,9 +1,11 @@
-package com.neves6.piazzapanic.tests;
+package peopletests;
 
 import static org.junit.Assert.assertTrue;
 
 import com.neves6.piazzapanic.people.Person;
 import java.util.Objects;
+
+import com.neves6.piazzapanic.tests.GdxTestRunner;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
