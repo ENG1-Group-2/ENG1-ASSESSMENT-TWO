@@ -24,7 +24,7 @@ public class Machine {
    * @param input Input ingredient.
    * @param output Output ingredient.
    * @param processingTime Processing time.
-   * @param sticky Whether or not the machine locks the chef in place during use.
+   * @param sticky Whether the machine locks the chef in place during use.
    */
   public Machine(
       String type,

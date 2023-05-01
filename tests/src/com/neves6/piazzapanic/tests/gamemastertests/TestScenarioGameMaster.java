@@ -38,50 +38,6 @@ public class TestScenarioGameMaster {
           false,
           1);
 
-  //  @Test
-  //  public void tryMoveValidUp() {
-  //    testMaster.tryMove("up");
-  //    assertEquals(
-  //        "Moving up should change the y axis in the positive direction",
-  //        6,
-  //        testMaster.getChef(1).getyCoord());
-  //    assertEquals("Moving up should not effect the x axis", 6,
-  // testMaster.getChef(1).getxCoord());
-  //  }
-  //
-  //  @Test
-  //  public void tryMoveValidDown() {
-  //    testMaster.tryMove("down");
-  //    assertEquals(
-  //        "Moving up should change the y axis in the negative direction",
-  //        4,
-  //        testMaster.getChef(1).getyCoord());
-  //    assertEquals("Moving up should not effect the x axis", 6,
-  // testMaster.getChef(1).getxCoord());
-  //  }
-  //
-  //  @Test
-  //  public void tryMoveValidRight() {
-  //    testMaster.tryMove("right");
-  //    assertEquals(
-  //        "Moving up should change the x axis in the positive direction",
-  //        7,
-  //        testMaster.getChef(1).getxCoord());
-  //    assertEquals("Moving up should not effect the y axis", 5,
-  // testMaster.getChef(1).getyCoord());
-  //  }
-  //
-  //  @Test
-  //  public void tryMoveValidLeft() {
-  //    testMaster.tryMove("left");
-  //    assertEquals(
-  //        "Moving up should change the x axis in the negative direction",
-  //        5,
-  //        testMaster.getChef(1).getxCoord());
-  //    assertEquals("Moving up should not effect the y axis", 5,
-  // testMaster.getChef(1).getyCoord());
-  //  }
-
   @Test
   public void tryMoveInvalidUp() {
     testMaster.getChef(1).setxCoord(7);
@@ -572,22 +528,10 @@ public class TestScenarioGameMaster {
         "keep");
   }
 
-  ScenarioGameMaster testMasterV =
-      new ScenarioGameMaster(
-          testGame,
-          map,
-          3,
-          0,
-          new Money(),
-          new IngredientsStaff(defValues, defValues),
-          new DeliveryStaff(defValues, defValues),
-          false,
-          1);
-
   @Test
   public void testServeFoodNoCust() {
     testMasterIV.serveFood();
-    assertTrue(testMasterIV.getChef(testMasterIV.getSelectedChef()).getInventory().size() == 0);
+    assertEquals(0, testMasterIV.getChef(testMasterIV.getSelectedChef()).getInventory().size());
   }
 
   @Test
@@ -596,7 +540,7 @@ public class TestScenarioGameMaster {
       testMasterIV.tickUpdate(1);
     }
     testMasterIV.serveFood();
-    assertTrue(testMasterIV.getChef(testMasterIV.getSelectedChef()).getInventory().size() == 0);
+    assertEquals(0, testMasterIV.getChef(testMasterIV.getSelectedChef()).getInventory().size());
   }
 
   @Test
@@ -609,7 +553,7 @@ public class TestScenarioGameMaster {
         .getChef(testMasterIV.getSelectedChef())
         .addToInventory(testMasterIV.getFirstCustomer().getOrder());
     testMasterIV.serveFood();
-    assertTrue(testMasterIV.getCustomers().size() == custOriginal - 1);
+    assertEquals(testMasterIV.getCustomers().size(), custOriginal - 1);
   }
 
   @Test
@@ -620,7 +564,7 @@ public class TestScenarioGameMaster {
     int custOriginal = testMasterIV.getCustomers().size();
     testMasterIV.getChef(testMasterIV.getSelectedChef()).addToInventory("Junk");
     testMasterIV.serveFood();
-    assertTrue(testMasterIV.getCustomers().size() == custOriginal);
+    assertEquals(testMasterIV.getCustomers().size(), custOriginal);
   }
 
   @Test
@@ -632,9 +576,7 @@ public class TestScenarioGameMaster {
         .getChef(testMasterII.getSelectedChef())
         .addToInventory(testMasterII.getFirstCustomer().getOrder());
     testMasterII.serveFood();
-    assertTrue(testMasterII.getChef(testMasterII.getSelectedChef()).getInventory().size() == 0);
-    assertTrue(
-        "If no powerup has been activated, text must just contain Current Active Powerups: '",
-        testMasterII.getPowerUpRunner().displayText().equals("Current Active Powerups: \n"));
+    assertEquals(0, testMasterII.getChef(testMasterII.getSelectedChef()).getInventory().size());
+    assertEquals("If no powerup has been activated, text must just contain Current Active Powerups: '", "Current Active Powerups: \n", testMasterII.getPowerUpRunner().displayText());
   }
 }

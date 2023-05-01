@@ -1,5 +1,6 @@
 package com.neves6.piazzapanic.tests.poweruptests;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.neves6.piazzapanic.gamemechanisms.GameSaver;
@@ -24,9 +25,7 @@ public class TestPowerUpRunner {
   public void testPrettyPrintNoPowerups() {
     machines.put("test", m1);
     PowerUpRunner testRunner = new PowerUpRunner(testChefs, machines, mo1, new GameSaver("ignore"));
-    assertTrue(
-        "If no powerup has been activated, text must just contain Current Active Powerups: '",
-        testRunner.displayText().equals("Current Active Powerups: \n"));
+      assertEquals("If no powerup has been activated, text must just contain Current Active Powerups: '", "Current Active Powerups: \n", testRunner.displayText());
   }
 
   @Test

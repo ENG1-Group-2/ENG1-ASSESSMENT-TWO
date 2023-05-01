@@ -1,6 +1,6 @@
 package com.neves6.piazzapanic.tests.poweruptests;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 import com.neves6.piazzapanic.gamemechanisms.Money;
 import com.neves6.piazzapanic.powerups.DoubleMoney;
@@ -16,17 +16,13 @@ public class TestDoubleMoney {
   @Test
   public void testApplyInactive() {
     testDoubleMoney.applyPowerUp(testMoney);
-    assertTrue(
-        "Amount should not change if the power-up is inactive",
-        testMoney.displayBalance().equals("Balance: $0.0"));
+      assertEquals("Amount should not change if the power-up is inactive", "Balance: $0.0", testMoney.displayBalance());
   }
 
   @Test
   public void testApplyActive() {
     testDoubleMoney.acquirePowerUp();
     testDoubleMoney.applyPowerUp(testMoney);
-    assertTrue(
-        "Amount should not change if the power-up is inactive",
-        testMoney.displayBalance().equals("Balance: $100.0"));
+      assertEquals("Amount should not change if the power-up is inactive", "Balance: $100.0", testMoney.displayBalance());
   }
 }

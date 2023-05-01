@@ -1,5 +1,5 @@
 """UTILITY FUNCTION TO SCAN THROUGH FILE TO SEE WHAT ASSETS ARE BEING USED IN ORDER TO TEST
-FOR THEIR EXISTANCE,
+FOR THEIR EXISTENCE,
 
 N.B. Any assets that cannot be detected using this method can be added to the template."""
 
@@ -15,7 +15,7 @@ file_structure = os.walk(PATH_TO_SOURCE)
 
 def generate_string(input, to_add):
     """
-    Generate a java function that tests for existance of a asset.
+    Generate a java function that tests for existence of a asset.
 
     :param input: Current java file as a string.
     :param to_add: Asset that needs to be added to the function.
@@ -45,7 +45,7 @@ for (dirpath, dirname, filenames) in file_structure:
         f = open(os.path.join(dirpath, filename))
         for line in f.readlines():
             start_val = line.find("Gdx.files.internal")
-            #If the phrase existes, just clean the string to just get the path.
+            #If the phrase exists, just clean the string to just get the path.
             if start_val > 0:
                 head_removed = line[start_val + 20:]
                 tail_removed = head_removed[:head_removed.find('")')]

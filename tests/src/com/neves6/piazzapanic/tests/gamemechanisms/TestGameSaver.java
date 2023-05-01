@@ -109,16 +109,12 @@ public class TestGameSaver {
   @Test
   public void testDecrementCustomerEndless() {
     testSaver.setCustomersRemaining(-1);
-    assertTrue(
-        "Should not decrement customer when in endless mode",
-        testSaver.decrementCustomers() == false);
+    assertFalse("Should not decrement customer when in endless mode", (boolean) testSaver.decrementCustomers());
   }
 
   @Test
   public void testDecrementCustomerValid() {
     testSaver.setCustomersRemaining(2);
-    assertTrue(
-        "Should not decrement customer when in endless mode",
-        testSaver.decrementCustomers() == true);
+    assertTrue("Should not decrement customer when in endless mode", (boolean) testSaver.decrementCustomers());
   }
 }

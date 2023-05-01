@@ -2,7 +2,7 @@
 
 ## Ticket Name
 
-<!-- write down github issue name and line -->
+<!-- write down GitHub issue name and line -->
 
 ## Work Completed by
 

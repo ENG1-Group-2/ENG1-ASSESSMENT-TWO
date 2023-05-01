@@ -47,9 +47,7 @@ public class TestAutoCook {
     testAutoCookII.acquirePowerUp();
     testAutoCookII.applyPowerUp(testMachines);
     m1.attemptGetOutput();
-    assertTrue(
-        "If a machine is running, when this powerup is attained, it should be used immediately",
-        t1.getInventory().peek() == "testProcessed");
+    assertEquals("If a machine is running, when this powerup is attained, it should be used immediately", "testProcessed", t1.getInventory().peek());
     assertFalse("Once a powerup is used it must be disabled.", testAutoCookII.getAcquiredStatus());
   }
 

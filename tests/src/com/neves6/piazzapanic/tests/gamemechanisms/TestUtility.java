@@ -38,9 +38,7 @@ public class TestUtility {
     // Creates new file with default values, reads values to ArrayList
     ArrayList<String> settings = Utility.getSettings();
     // Test if values read from file match expected values
-    Assert.assertTrue(
-        "Default settings file contents don't match expected values",
-        settings.equals(defaultSettings));
+      Assert.assertEquals("Default settings file contents don't match expected values", settings, defaultSettings);
   }
 
   @Test
@@ -53,7 +51,6 @@ public class TestUtility {
     Utility.setSettings(newSettings);
     ArrayList<String> settings = Utility.getSettings();
     // Test if values read from file match expected values
-    Assert.assertTrue(
-        "Edited settings file contents don't match expected changes", settings.equals(newSettings));
+      Assert.assertEquals("Edited settings file contents don't match expected changes", settings, newSettings);
   }
 }

@@ -24,7 +24,7 @@ public class Tray {
   ArrayList<String> content;
 
   /**
-   * Constructor method which adds all recipes to a list. Create an list to store content of trays.
+   * Constructor method which adds all recipes to a list. Create a list to store content of trays.
    */
   public Tray() {
     content = new ArrayList<>();

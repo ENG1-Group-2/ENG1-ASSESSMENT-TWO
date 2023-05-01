@@ -94,9 +94,7 @@ public class TestMachine {
     testMoney.incrementBalance();
     testMoney.unlockMachine("test");
     testMachine.processStaffInteraction(testChef, testMoney);
-    assertTrue(
-        "Unlock machine with unlockID and if unlocked add machine output to chefs inventory",
-        testChef.getInventory().pop().equals("Cooked Patty"));
+      assertEquals("Unlock machine with unlockID and if unlocked add machine output to chefs inventory", "Cooked Patty", testChef.getInventory().pop());
   }
 
   @Test

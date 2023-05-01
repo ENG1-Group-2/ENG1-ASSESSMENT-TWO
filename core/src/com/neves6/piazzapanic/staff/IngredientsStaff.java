@@ -30,18 +30,18 @@ public class IngredientsStaff extends BaseStaff {
    * the user for maximum time saving.
    */
   public void generateStack() {
-    if (currentRecipe == "salad") {
+    if (currentRecipe.equals("salad")) {
       this.stack.push("onion");
       this.stack.push("tomato");
       this.stack.push("lettuce");
-    } else if (currentRecipe == "jacket potato") {
+    } else if (currentRecipe.equals("jacket potato")) {
       this.stack.push("beans");
       this.stack.push("potato");
-    } else if (currentRecipe == "pizza") {
+    } else if (currentRecipe.equals("pizza")) {
       this.stack.push("cheese");
       this.stack.push("tomato");
       this.stack.push("dough");
-    } else if (currentRecipe == "hamburger") {
+    } else if (currentRecipe.equals("hamburger")) {
       this.stack.push("meat");
       this.stack.push("bun");
     } else {

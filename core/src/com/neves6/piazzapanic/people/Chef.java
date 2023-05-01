@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.neves6.piazzapanic.gamemechanisms.Machine;
 import java.util.Stack;
 
-/** Chef class which helps the user cook items and it inherits methods from the person class. */
+/** Chef class which helps the user cook items, and it inherits methods from the person class. */
 public class Chef extends Person {
   private boolean isStickied;
   private Stack<String> inventory;
@@ -113,7 +113,7 @@ public class Chef extends Person {
   /**
    * Add a new item to the top of the chef inventory.
    *
-   * @param item A ingredient to be added to the inventory.
+   * @param item An ingredient to be added to the inventory.
    */
   public void addToInventory(String item) {
     this.inventory.push(item);

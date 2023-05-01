@@ -1,5 +1,6 @@
 package com.neves6.piazzapanic.tests.gamemechanisms;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.neves6.piazzapanic.gamemechanisms.Money;
@@ -37,14 +38,12 @@ public class TestTray {
 
     testTray.putOnTray("cheese");
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
-    assertTrue(testTray.getList().equals(new ArrayList<>(Arrays.asList("cheese"))));
+    assertEquals(testTray.getList(), new ArrayList<>(Arrays.asList("cheese")));
     testTray.addToTray(testChef3, testStaff, customers, testMoney);
-    assertTrue(testTray.getList().equals(new ArrayList<>(Arrays.asList("cheese"))));
+    assertEquals(testTray.getList(), new ArrayList<>(Arrays.asList("cheese")));
     testTray.addToTray(testChef4, testStaff, customers, testMoney);
 
-    assertTrue(
-        "Tray stays unaltered",
-        testTray.getList().equals(new ArrayList<>(Arrays.asList("cheese"))));
+    assertEquals("Tray stays unaltered", testTray.getList(), new ArrayList<>(Arrays.asList("cheese")));
   }
 
   @Test
@@ -64,9 +63,7 @@ public class TestTray {
     testMoney.addGroup("server-staff", 100f);
 
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
-    assertTrue(
-        "add chefs inventory to the contents",
-        testTray.getList().equals(new ArrayList<>(Arrays.asList("tomato"))));
+    assertEquals("add chefs inventory to the contents", testTray.getList(), new ArrayList<>(Arrays.asList("tomato")));
   }
 
   @Test
@@ -90,9 +87,7 @@ public class TestTray {
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
-    assertTrue(
-        "creates ruined recipe due to too many ingredients",
-        testChef1.getInventory().pop().equals("ruined hamburger"));
+    assertEquals("creates ruined recipe due to too many ingredients", "ruined hamburger", testChef1.getInventory().pop());
     assertTrue(testTray.getList().isEmpty());
   }
 
@@ -115,7 +110,7 @@ public class TestTray {
 
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
     testTray.addToTray(testChef1, testStaff, customers, testMoney);
-    assertTrue("creates recipe", testChef1.getInventory().pop().equals("hamburger"));
+    assertEquals("creates recipe", "hamburger", testChef1.getInventory().pop());
     assertTrue("test empty", testTray.getList().isEmpty());
   }
 
@@ -145,8 +140,6 @@ public class TestTray {
     Queue<Customer> customers1 = new LinkedList<>();
     testChef1.addToInventory("tomato");
     testTray.addToTray(testChef1, testStaff, customers1, testMoney);
-    assertTrue(
-        "add chefs inventory to the contents",
-        testTray.getList().equals(new ArrayList<>(Arrays.asList("tomato"))));
+    assertEquals("add chefs inventory to the contents", testTray.getList(), new ArrayList<>(Arrays.asList("tomato")));
   }
 }

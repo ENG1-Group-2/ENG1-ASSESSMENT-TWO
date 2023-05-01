@@ -100,7 +100,7 @@ public class BasePowerUp {
   /**
    * Loads a previously set up power-up.
    *
-   * @param details JSONObject containing the time it has run for so far if it has been previous
+   * @param details JSONObject containing the time it has run for so far if it has been previously
    *     activated.
    */
   public void loadPowerup(JSONObject details) {

@@ -1,7 +1,6 @@
 package com.neves6.piazzapanic.tests.gamemastertests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
@@ -93,47 +92,34 @@ public class TestTextMaster {
 
   @Test
   public void testReputationPointTextStart() {
-    assertTrue(
-        "If no reputation points have been lost in the first 3 seconds" + " shown",
-        tm.generateReputationPointText(2f, 0f, 3).equals("Reputation points: 3"));
+      assertEquals("If no reputation points have been lost in the first 3 seconds" + " shown", "Reputation points: 3", tm.generateReputationPointText(2f, 0f, 3));
   }
 
   @Test
   public void testReputationPointText() {
-    assertTrue(
-        "If no reputation points have been lost in the past 3 seconds only the reputation points"
-            + " should be shown",
-        tm.generateReputationPointText(100f, 0f, 3).equals("Reputation points: 3"));
+      assertEquals("If no reputation points have been lost in the past 3 seconds only the reputation points"
+              + " should be shown", "Reputation points: 3", tm.generateReputationPointText(100f, 0f, 3));
   }
 
   @Test
   public void testReputationPointTextLost() {
-    assertTrue(
-        "If reputation points have been lost in the past 3 seconds only the reputation points"
-            + " should be along with -1 shown",
-        tm.generateReputationPointText(102f, 101f, 3).equals("Reputation points: 3 -1"));
+      assertEquals("If reputation points have been lost in the past 3 seconds only the reputation points"
+              + " should be along with -1 shown", "Reputation points: 3 -1", tm.generateReputationPointText(102f, 101f, 3));
   }
 
   @Test
   public void testGenerateCustomerLeft() {
-    assertTrue(
-        "If a customer has left it should notify the user",
-        tm.generateCustomerLeftText(100f, 102f)
-            .equals("A customer was tired of waiting\n" + "Reputation point lost"));
+      assertEquals("If a customer has left it should notify the user", "A customer was tired of waiting\n" + "Reputation point lost", tm.generateCustomerLeftText(100f, 102f));
   }
 
   @Test
   public void testGenerateCustomerLeftStarting() {
-    assertTrue(
-        "A customer should not lose points in the first 3 seconds.",
-        tm.generateCustomerLeftText(2f, 0f).equals(""));
+      assertEquals("A customer should not lose points in the first 3 seconds.", "", tm.generateCustomerLeftText(2f, 0f));
   }
 
   @Test
   public void testGenerateCustomerLeftNot() {
-    assertTrue(
-        "If a customer has left it should notify the user",
-        tm.generateCustomerLeftText(100f, 0f).equals(""));
+      assertEquals("If a customer has left it should notify the user", "", tm.generateCustomerLeftText(100f, 0f));
   }
 
   @Test

@@ -43,7 +43,7 @@ public class Person {
   /**
    * Getter method for name variable.
    *
-   * @return The string representing a identifier for the person.
+   * @return The string representing an identifier for the person.
    */
   public String getName() {
     return name;

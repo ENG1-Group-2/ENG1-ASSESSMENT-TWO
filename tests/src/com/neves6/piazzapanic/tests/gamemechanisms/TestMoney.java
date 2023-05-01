@@ -77,7 +77,6 @@ public class TestMoney {
   @Test
   public void testGetUnlockPrice() {
     test.addGroup("test", 50f);
-    assertTrue(
-        "Display the unlock price for a certain station", test.getUnlockPrice("test") == 50f);
+    assertEquals("Display the unlock price for a certain station", 50f, test.getUnlockPrice("test"), 0.0);
   }
 }
