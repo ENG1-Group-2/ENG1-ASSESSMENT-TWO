@@ -54,6 +54,7 @@ public class TestIngredientStaff {
   @Test(expected = IllegalArgumentException.class)
   public void testInvalidSaladStack() {
     // Generate stack for an invalid recipe.
+    test.setGenerate(true);
     test.setCurrentRecipe("beer");
     test.generateStack();
   }
