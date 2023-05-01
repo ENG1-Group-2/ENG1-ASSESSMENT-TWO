@@ -1,4 +1,4 @@
-package com.neves6.piazzapanic.tests.gamemechanisms;
+package com.neves6.piazzapanic.tests.peopletests;
 
 import static org.junit.Assert.*;
 
@@ -40,7 +40,7 @@ public class TestChef {
             && testChef.getName().equals("@<-little monkey :)")
             && testChef.getIsStickied() == isStickied
             && testChef.getInventory() == inv
-        /** testChef.getTxNow()==txDown TEXTURESET ETC?? */
+        /* testChef.getTxNow()==txDown TEXTURESET ETC?? */
         );
   }
 
@@ -62,7 +62,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     testChef.setMachineInteractingWith(testMachine);
     assertSame(
@@ -88,7 +88,7 @@ public class TestChef {
             0,
             false,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     boolean stickiness = true;
     testChef.setIsStickied(stickiness);
@@ -119,7 +119,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     Stack<String> testInvA = testChef.getInventory();
     testChef.addToInventory("s");
@@ -144,7 +144,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     Stack<String> testInvP = testChef.getInventory();
     testChef.removeTopFromInventory();
@@ -169,7 +169,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
 
     testChef.setFacing("up");
@@ -199,7 +199,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
 
     testChef.setFacing("left");
@@ -224,7 +224,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     Texture txUp = new Texture("people/chef1up.png");
     Texture txDown = new Texture("people/chef1down.png");
@@ -268,7 +268,7 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
     Texture txRight = new Texture("people/chef1right.png");
 
@@ -297,10 +297,10 @@ public class TestChef {
             0,
             true,
             inv,
-            /** texture set int */
+            /* texture set int */
             1);
 
     testChef.setLastMove(100);
-    assertTrue("Cannot get the time of the chef's last movement", 100 == testChef.getLastMove());
+    assertEquals("Cannot get the time of the chef's last movement", 100, testChef.getLastMove(), 0.0);
   }
 }
