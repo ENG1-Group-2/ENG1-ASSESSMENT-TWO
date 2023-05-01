@@ -1,4 +1,4 @@
-package peopletests;
+package com.neves6.piazzapanic.tests.peopletests;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
